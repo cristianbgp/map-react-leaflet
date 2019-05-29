@@ -8,7 +8,10 @@ function SimpleMap() {
     navigator.geolocation.watchPosition(pos => {
       setPosition([pos.coords.latitude, pos.coords.longitude]);
     });
-  });
+    return () => {
+      navigator.geolocation.clearWatch();
+    };
+  }, [setPosition]);
 
   const map = (
     <Map center={position} zoom={13}>
