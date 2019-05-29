@@ -2,14 +2,14 @@ import React from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 function SimpleMap() {
-  const [position, setPosition] = React.useState([-12, -77]);
+  const [position, setPosition] = React.useState([0, 0]);
 
   React.useEffect(() => {
-    navigator.geolocation.watchPosition(pos => {
+    const watchID = navigator.geolocation.watchPosition(pos => {
       setPosition([pos.coords.latitude, pos.coords.longitude]);
     });
     return () => {
-      navigator.geolocation.clearWatch();
+      navigator.geolocation.clearWatch(watchID);
     };
   }, [setPosition]);
 
