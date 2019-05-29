@@ -1,5 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import SimpleMap from "./SimpleMap";
 
-ReactDOM.render(<SimpleMap />, document.getElementById("root"));
+const $root = document.getElementById("root");
+render(<SimpleMap />, $root);

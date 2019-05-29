@@ -3,8 +3,8 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 class SimpleMap extends Component {
   state = {
-    lat: 51.505,
-    lng: -0.09,
+    lat: -12.0757427,
+    lng: -77.0573508,
     zoom: 13
   };
 
@@ -17,7 +17,12 @@ class SimpleMap extends Component {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={position}>
-          <Popup>You are here! 📍</Popup>
+          <Popup>
+            You are here!
+            <span role="img" aria-label="emoji dot position">
+              📍
+            </span>
+          </Popup>
         </Marker>
       </Map>
     );
